@@ -1,0 +1,57 @@
+.container {
+    position: relative;
+    width: 100%;    
+    height: 100vh;
+    background-color: #000;
+}
+
+.just-flex-yo{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-right-radius: 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 20px;
+    height: 5vw;
+    width: 25vw;
+    transition: width 0.3s ease-in-out
+}
+
+.card:hover {
+    cursor: pointer;
+    width: 27vw;
+}
+
+.number {
+    font-size: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.way-dot {
+    font-size: 14px;
+}
+
+.description-card {
+    font-size: 16px;
+    width: 300px;
+}

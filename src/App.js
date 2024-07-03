@@ -4,9 +4,8 @@ import MainPage from './main-page/main-page'
 
 function App() {
   return (
-    <div>
+    <div className='BOSS'>
       <MainPage />
-      sasdasdasd
     </div>
   );
 }
