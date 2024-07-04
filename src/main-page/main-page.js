@@ -40,8 +40,8 @@ const MainPage = () => {
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
                 const maxDistance = 200; // distance glow
-                const minOpacity = 0.1;
-                const maxOpacity = 0.5;
+                const minOpacity = 0.4;
+                const maxOpacity = 0.7;
 
                 const opacity = Math.max(minOpacity, maxOpacity - distance / maxDistance);
                 ball.style.opacity = opacity;
@@ -102,12 +102,14 @@ const MainPage = () => {
     }, []);
 
     return (
+
         <header>
             <div className='containerForBalls'></div>
             <MainPageHello />
             <MainPageSkills />
             <MainPageShowLogic />
         </header>
+
     );
 };
 

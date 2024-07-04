@@ -1,15 +1,22 @@
 
 import './main-page-show-logic-work.css';
+import { useNavigate } from 'react-router-dom';
 
 function MainPageShowLogic() {
+    const navigate = useNavigate();
+
+    const navigateTo = (path) => {
+      navigate(path);
+    };
     return (
+        
         <div className='container'>
             <div className='just-flex-yo'>
                 <div className='text-greeting'>
                     MY WORK
                 </div>
                 <div className='work-cards'>
-                    <div className='work-card'>
+                    <div className='work-card' onClick={() => navigateTo('/movie-searcher')}>
                         <div className='work-screen'>
                             01
                         </div>
@@ -17,7 +24,7 @@ function MainPageShowLogic() {
                             Movie Searcher
                         </div>
                     </div>
-                    <div className='work-card'>
+                    <div className='work-card' onClick={() => navigateTo('/to-do-list')}>
                         <div className='work-screen'>
                             02
                         </div>
