@@ -1,0 +1,26 @@
+{
+  "daily_affairs": [
+    {
+      "id": "1",
+      "name": "going to usa",
+      "description": "ohhhh usa",
+      "end_time": "06.12.2024",
+      "tags": [
+        "#travel",
+        "#future",
+        "#newCountry"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "travel to turkish",
+      "description": "to go with a girl to Turkey",
+      "end_time": "31.07.2024",
+      "tags": [
+        "#meet",
+        "#bro",
+        "#istanbul"
+      ]
+    }
+  ]
+}
