@@ -4,6 +4,8 @@ import './App.css';
 import MainPage from './main-page/main-page'
 import MovieSearch from './main-page/main-page-show-logic-work/movie-search/movie-search'
 import ToDoList from './main-page/main-page-show-logic-work/to-do-list/to-do-list';
+import LeapToRiches from './main-page/main-page-show-logic-work/leap-to-riches/leap-to-riches';
+import ShopAreaLeapToRiches from './main-page/main-page-show-logic-work/leap-to-riches/shop-area-leap-to-riches/shop-area-leap-to-riches';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path='/movie-searcher' element={<MovieSearch />}></Route>
           <Route path='/to-do-list' element={<ToDoList />}></Route>
+          <Route path='/leap-to-riches' element={<LeapToRiches />}></Route>
+          <Route path='/leap-to-riches/shop-area' element={<ShopAreaLeapToRiches />}></Route>
         </Routes>
       </div>
     </Router>

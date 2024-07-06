@@ -32,12 +32,12 @@ function MainPageShowLogic() {
                             TO-DO LIST
                         </div>
                     </div>
-                    <div className='work-card'>
+                    <div className='work-card' onClick={() => navigateTo('/leap-to-riches')}>
                         <div className='work-screen'>
                             03
                         </div>
                         <div className='work-desc'>
-                            NOW IDK
+                            LEAP TO RICHES
                         </div>
                     </div>
                     <div className='work-card'>
