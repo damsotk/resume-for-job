@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import HeaderLeapToRiches from './header-leap-to-riches/header-leap-to-riches';
 import MainPlayingAreaLeapToRiches from './main-playing-area-leap-to-riches/main-playing-area-leap-to-riches';
+import NotificationManagerLeapToRiches from './notification-manager-leap-to-riches/notification-manager-leap-to-riches';
 import './leap-to-riches.css';
 
 function LeapToRiches() {
   const [player, setPlayer] = useState(null);
   const [clickCount, setClickCount] = useState(0);
-  const [clicksNeededForCoin, setClicksNeededForCoin] = useState(10);
+  const [clicksNeededForCoin, setClicksNeededForCoin] = useState(30);
 
   useEffect(() => {
     fetchPlayer();
@@ -54,7 +55,7 @@ function LeapToRiches() {
       setClickCount(newClickCount);
 
       if (newClickCount >= clicksNeededForCoin) {
-        updatedPlayer.coins += 1;
+        updatedPlayer.coins = parseFloat((updatedPlayer.coins + 0.1).toFixed(1)); 
         setClickCount(0);
       }
 
@@ -72,6 +73,7 @@ function LeapToRiches() {
             clickCount={clickCount}
             hasLevel2ClickPower={player.store_bought_items && player.store_bought_items.click_power_item === 'level 2'}
           />
+          <NotificationManagerLeapToRiches player={player} updatePlayer={updatePlayer} />
         </div>
       ) : (
         <p>Loading...</p>
