@@ -31,7 +31,7 @@ function LeapToRiches() {
   };
 
   const updatePlayer = (updatedPlayer) => {
-    fetch(`http://localhost:3000/leap-to-riches/1`, {
+    fetch(`http://localhost:3000/leap-to-riches/${updatedPlayer.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function LeapToRiches() {
       setClickCount(newClickCount);
 
       if (newClickCount >= clicksNeededForCoin) {
-        updatedPlayer.coins = parseFloat((updatedPlayer.coins + 0.1).toFixed(1)); 
+        updatedPlayer.coins = parseFloat((updatedPlayer.coins + updatedPlayer.income).toFixed(1)); 
         setClickCount(0);
       }
 
@@ -67,7 +67,7 @@ function LeapToRiches() {
     <div>
       {player ? (
         <div>
-          <HeaderLeapToRiches coins={player.coins} />
+          <HeaderLeapToRiches coins={player.coins} permissions={player.permissions} />
           <MainPlayingAreaLeapToRiches
             onCoinClick={handleCoinClick}
             clickCount={clickCount}

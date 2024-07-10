@@ -1,11 +1,16 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './header-leap-to-riches.css';
 
-function HeaderLeapToRiches({ coins }) {
+function HeaderLeapToRiches({ coins, permissions }) {
   const navigate = useNavigate();
 
   const navigateToShop = () => {
-    navigate('/leap-to-riches/shop-area', { state: { coins } });
+    if (permissions.store_access) {
+      navigate('/leap-to-riches/shop-area', { state: { coins } });
+    } else {
+      alert('You do not have permission to access the shop.');
+    }
   };
 
   return (

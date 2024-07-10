@@ -23,13 +23,36 @@ function NotificationManagerLeapToRiches({ player, updatePlayer }) {
         ]
       });
     }
+
+    if (player.coins >= 100 && !player.events?.includes('reach_100_dollars')) {
+      addNotification({
+        id: 'reach_100_dollars',
+        message: 'Congratulations! You have reached $100. You now have access to the store and your income has increased to 0.2 coins.',
+        options: [
+          { text: 'Ok', action: handleReach100Dollars },
+        ]
+      });
+    }
   };
+
+  
 
   const addNotification = (notification) => {
     setNotifications([...notifications, notification]);
     if (!currentNotification) {
       setCurrentNotification(notification);
     }
+  };
+
+  const handleReach100Dollars = () => {
+    const updatedPlayer = {
+      ...player,
+      income: 0.2,
+      permissions: { ...player.permissions, store_access: true },
+      events: [...(player.events || []), 'reach_100_dollars']
+    };
+    updatePlayer(updatedPlayer);
+    closeNotification();
   };
 
   const handleFirstEarnings = () => {

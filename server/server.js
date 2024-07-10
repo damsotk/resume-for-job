@@ -24,8 +24,8 @@ app.get('/leap-to-riches/:id', (req, res) => {
 });
 
 app.put('/leap-to-riches/:id', (req, res) => {
-  console.log(`PUT request for player with id ${req.params.id}`);
-  const playerIndex = data['leap-to-riches'].findIndex(p => p.id === req.params.id);
+  const playerId = req.params.id;
+  const playerIndex = data['leap-to-riches'].findIndex(p => p.id === playerId);
   if (playerIndex !== -1) {
     data['leap-to-riches'][playerIndex] = req.body;
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
