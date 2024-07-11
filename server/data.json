@@ -2,13 +2,13 @@
   "leap-to-riches": [
     {
       "id": "1",
-      "coins": 103.2,
+      "coins": 110,
       "store_bought_items": {
-        "click_power_item": "level 2"
+        "click_power_item": "level 1"
       },
       "events": [
-        "first_earnings",
-        "reach_100_dollars"
+        "reach_100_dollars",
+        "first_earnings"
       ],
       "income": 0.2,
       "permissions": {

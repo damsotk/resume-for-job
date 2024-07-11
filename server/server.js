@@ -35,6 +35,39 @@ app.put('/leap-to-riches/:id', (req, res) => {
   }
 });
 
+
+let companiesData = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'companies.json'), 'utf-8'));
+
+const MAX_DATA_POINTS = 10; 
+
+const updateDataInterval = setInterval(() => {
+  companiesData.companies.forEach(company => {
+    const newDataPoint = {
+      x: new Date().toLocaleTimeString(),
+      y: Math.random() * 1000 
+    };
+    company.data.push(newDataPoint);
+
+
+    if (company.data.length > MAX_DATA_POINTS) {
+      company.data.shift(); 
+    }
+  });
+
+
+  fs.writeFileSync(path.resolve(__dirname, 'companies.json'), JSON.stringify(companiesData, null, 2));
+}, 10000); 
+
+app.get('/api/companies', (req, res) => {
+  res.json(companiesData.companies);
+});
+
+process.on('SIGINT', () => {
+  clearInterval(updateDataInterval);
+  process.exit();
+});
+
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
