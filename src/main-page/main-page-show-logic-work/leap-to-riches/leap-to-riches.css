@@ -3,6 +3,7 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    background-color: #181820;
 }
 
 .shopButton {
@@ -29,4 +30,15 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
+}
+
+.flexForInfo {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1e1d25;
+    margin-top: 40px;
+    border-top: 3px solid #2a2930;
 }

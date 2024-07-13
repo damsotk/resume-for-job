@@ -9,46 +9,37 @@ import Chart from 'chart.js/auto';
 
 
 const AllCompaniesLeapToRiches = () => {
-    const [companyData, setCompanyData] = useState([]);
+  const [companyData, setCompanyData] = useState([]);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await fetch('http://localhost:3000/api/companies');
-          if (!response.ok) {
-            throw new Error('Не вдалося отримати дані');
-          }
-          const data = await response.json();
-          setCompanyData(data);
-        } catch (error) {
-          console.error('Помилка при отриманні даних:', error);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/companies');
+        if (!response.ok) {
+          throw new Error('Не вдалося отримати дані');
         }
-      };
-  
-      fetchData();
-  
-      const interval = setInterval(() => {
-        fetchData();
-      }, 10000);
-      return () => clearInterval(interval);
-    }, []);
-  
-    const chartData = {
-      labels: companyData.length > 0 ? companyData[0].data.map(point => point.x) : [],
-      datasets: companyData.map(company => ({
-        label: company.name,
-        data: company.data.map(point => point.y),
-        fill: false,
-        borderColor: `#${Math.floor(Math.random()*16777215).toString(16)}`,
-        tension: 0.1
-      }))
+        const data = await response.json();
+        setCompanyData(data);
+      } catch (error) {
+        console.error('Помилка при отриманні даних:', error);
+      }
     };
-  
-    return (
-      <div className="stock-chart">
-        <Line data={chartData} />
-      </div>
-    );
+
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="all-companies-leap-to-riches">
+      {companyData.map((company) => (
+        <CompaniesStockDisplay key={company.symbol} company={company} />
+      ))}
+    </div>
+  );
 };
 
 export default AllCompaniesLeapToRiches;

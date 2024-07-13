@@ -55,7 +55,7 @@ function LeapToRiches() {
       setClickCount(newClickCount);
 
       if (newClickCount >= clicksNeededForCoin) {
-        updatedPlayer.coins = parseFloat((updatedPlayer.coins + updatedPlayer.income).toFixed(1)); 
+        updatedPlayer.coins = parseFloat((updatedPlayer.coins + updatedPlayer.income).toFixed(1));
         setClickCount(0);
       }
 
@@ -68,12 +68,22 @@ function LeapToRiches() {
       {player ? (
         <div>
           <HeaderLeapToRiches coins={player.coins} permissions={player.permissions} />
-          <MainPlayingAreaLeapToRiches
-            onCoinClick={handleCoinClick}
-            clickCount={clickCount}
-            hasLevel2ClickPower={player.store_bought_items && player.store_bought_items.click_power_item === 'level 2'}
-          />
-          <NotificationManagerLeapToRiches player={player} updatePlayer={updatePlayer} />
+          <div>
+          <div className='flexForInfo'>
+            <div className='generalMoneyDisplay'>
+              {/* {player.coins} */}
+            </div>
+            <MainPlayingAreaLeapToRiches
+              onCoinClick={handleCoinClick}
+              clickCount={clickCount}
+              hasLevel2ClickPower={player.store_bought_items && player.store_bought_items.click_power_item === 'level 2'}
+            />
+          </div>
+          <div className='notificationAndNews'>
+            <div>Interesting</div>
+            <NotificationManagerLeapToRiches player={player} updatePlayer={updatePlayer} />
+          </div>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>

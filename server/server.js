@@ -42,21 +42,28 @@ const MAX_DATA_POINTS = 10;
 
 const updateDataInterval = setInterval(() => {
   companiesData.companies.forEach(company => {
+    const lastDataPoint = company.data[company.data.length - 1];
+    const lastPrice = lastDataPoint ? lastDataPoint.y : 500;
+    const change = (Math.random() * 10) * (Math.random() < 0.5 ? -1 : 1); 
+    let newPrice = lastPrice + change;
+    if (newPrice < 0) {
+      newPrice = 0; 
+    }
+
     const newDataPoint = {
       x: new Date().toLocaleTimeString(),
-      y: Math.random() * 1000 
+      y: newPrice
     };
+
     company.data.push(newDataPoint);
 
-
     if (company.data.length > MAX_DATA_POINTS) {
-      company.data.shift(); 
+      company.data.shift();
     }
   });
 
-
   fs.writeFileSync(path.resolve(__dirname, 'companies.json'), JSON.stringify(companiesData, null, 2));
-}, 10000); 
+}, 5000);
 
 app.get('/api/companies', (req, res) => {
   res.json(companiesData.companies);

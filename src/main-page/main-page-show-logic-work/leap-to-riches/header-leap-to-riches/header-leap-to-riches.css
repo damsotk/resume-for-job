@@ -1,8 +1,14 @@
+
+
+
 .navForGame {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 10px 0px 10px;
+    background-color: #1d1d25;
+    color: white;
+    border-bottom: 3px solid #2a2930;
 }
 
 .logo {
@@ -13,9 +19,54 @@
 .mainButtons {
     display: flex;
     gap: 10px;
+    background-color: #1e1d25;
+    border: 3px solid #2a2930;
+    position: relative;
+    height: 60px;
+    bottom: -20px;
+    left: -50px;
+    padding: 10px 40px 10px 40px;
+    justify-content: center;
+    align-items: center;
 }
+
+.mainButtons div img {
+    height: 50px;
+    width: 50px;
+}
+
 
 .littleInfoAboutCharacter {
     display: flex;
     gap: 10px;
+    align-items: center;
+    font-size: 15px;
 }
+
+.stats {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.fame, .passiveIncome, .userCash {
+    display: flex;
+}
+.fame img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+.passiveIncome img {
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+    margin-right: 10px;
+}
+.income {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+

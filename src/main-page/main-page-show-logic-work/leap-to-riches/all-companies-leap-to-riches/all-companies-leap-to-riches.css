@@ -1,0 +1,11 @@
+.all-companies-leap-to-riches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.company-chart {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
