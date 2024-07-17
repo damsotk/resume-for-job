@@ -45,7 +45,7 @@ function MainPageShowLogic() {
                             04
                         </div>
                         <div className='work-desc'>
-                            NOW IDK
+                            SHOP
                         </div>
                     </div>
                     <div className='work-card'>
@@ -53,7 +53,7 @@ function MainPageShowLogic() {
                             05
                         </div>
                         <div className='work-desc'>
-                            NOW IDK
+                            MAP
                         </div>
                     </div>
                     <div className='work-card'>
@@ -61,7 +61,7 @@ function MainPageShowLogic() {
                             06
                         </div>
                         <div className='work-desc'>
-                            NOW IDK
+                            CURRENCY
                         </div>
                     </div>
                 </div>
